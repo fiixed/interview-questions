@@ -51,6 +51,7 @@ function matrix(n) {
     }
     endRow--;
 
+    // Left Col
     for (let i = endRow; i >= startRow; i--) {
       results[i][startColumn] = counter;
       counter++;

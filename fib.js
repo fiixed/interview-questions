@@ -21,7 +21,7 @@
 
 // Recursion
 
-function fib(n) {
+function slowFib(n) {
   const result = [0, 1];
   if (n < 2) {
     return n;
@@ -30,6 +30,24 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
-for (let i = 0; i <= 8; i++) {
+// Memoizer
+
+function memoize(fn) {
+  const cache = {};
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+    
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  };
+}
+
+const fib = memoize(slowFib);
+
+for (let i = 0; i <= 50; i++) {
   console.log(fib(i));
 }

@@ -10,13 +10,16 @@
 
 //var reverseString = (str) => str.split("").reverse().join("");
 
-function reverseString(str) {
-  let reversed = '';
-  for (const char of str) {
-    reversed = char + reversed;
-  }
-  return reversed;
-}
+// function reverseString(str) {
+//   let reversed = '';
+//   for (const char of str) {
+//     reversed = char + reversed;
+//   }
+//   return reversed;
+// }
+
+
+const reverseString = (str) => str.split('').reduce((rev, char) =>  char + rev, '');
 
 console.log(reverseString("Hello"));
 

@@ -10,29 +10,29 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-// function anagrams(strA, strB) {
-//   const aCharMap = buildCharMap(strA);
-//   const bCharMap = buildCharMap(strB);
+function anagrams(strA, strB) {
+  const aCharMap = buildCharMap(strA);
+  const bCharMap = buildCharMap(strB);
 
-//   if (Object.keys(aCharMap).length != Object.keys(bCharMap).length) {
-//     return false;
-//   }
+  if (Object.keys(aCharMap).length != Object.keys(bCharMap).length) {
+    return false;
+  }
 
-//   for (const char in aCharMap) {
-//     if (aCharMap[char] != bCharMap[char]) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
+  for (const char in aCharMap) {
+    if (aCharMap[char] != bCharMap[char]) {
+      return false;
+    }
+  }
+  return true;
+}
 
-// function buildCharMap(str) {
-//   const charMap = {};
-//   for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
-//     charMap[char] = charMap[char] + 1 || 1;
-//   }
-//   return charMap;
-// }
+function buildCharMap(str) {
+  const charMap = {};
+  for (const char of str.replace(/[^\w]/g, '').toLowerCase()) {  // any char that is not a number, upper or lowercase character
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+  return charMap;
+}
 
 function anagrams(strA, strB) {
   return cleanString(strA) === cleanString(strB);

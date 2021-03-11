@@ -21,18 +21,28 @@
 
 function steps(num) {
   for (let row = 0; row < num; row++) {
-    let stair = "";
+    let stair = '';
     for (let col = 0; col < num; col++) {
       if (col <= row) {
-        stair += "#";
+        stair += '#';
       } else {
-        stair += " ";
+        stair += ' ';
       }
     }
     console.log(stair);
   }
 }
 
+function printNumber(n, dec = 1) {
+  if (n === 0) {
+    return;
+  }
+
+  console.log(n);
+  printNumber(n - dec);
+}
+
+printNumber(10);
 // function steps(n, row = 0, stair = "") {
 //   if (n == row) {
 //     return;
